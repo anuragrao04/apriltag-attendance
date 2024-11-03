@@ -97,7 +97,7 @@
     cycle = document.getElementById('cycle').value;
     prn = document.getElementById('prn').value;
     table_name = campus + '_' + semester + '_' + section + '_' + branch + '_' + cycle
-    const backend_url = 'http://localhost:6969';
+    const backend_url = '/api';
     const url = backend_url + '/get-tag' + '?table=' + table_name + '&prn=' + prn;
     let tag = await fetch(url)
     // this returns the src of the image. It's an svg
