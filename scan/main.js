@@ -45,7 +45,7 @@ canvas.height = 360;
 const constraints = {
   audio: false,
   video: true,
-  video: { width: cameraInfo.img_size[0], height: cameraInfo.img_size[1] }
+  video: { width: cameraInfo.img_size[0], height: cameraInfo.img_size[1], facingMode: { exact: 'environment' } }
 };
 
 function handleSuccess(stream) {
