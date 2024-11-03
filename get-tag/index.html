@@ -100,16 +100,9 @@
     const backend_url = '/api';
     const url = backend_url + '/get-tag' + '?table=' + table_name + '&prn=' + prn;
     let tag = await fetch(url)
-    // this returns the number of the image. 
+    // this returns the src of the image. It's an svg
     // we create a new image node, append it to the body, and make it full screen
     tag = await tag.text()
-    tag = "/apriltag/" + tag + ".svg";
-    console.log(tag)
-
-    const response = await fetch(tag)
-    tag = await response.text()
-
-    console.log(tag)
 
     const parser = new DOMParser();
     const svgDoc = parser.parseFromString(tag, "image/svg+xml");
