@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
     <meta charset="utf-8">
@@ -14,22 +15,23 @@
 
 <body>
 
-<div id="container">
+    <div id="container">
 
-    <video id="webcam_canvas" playsinline autoplay style="display:none"></video>
-    <canvas id="out_canvas"></canvas>
-    <p>Scan the classroom with students holding up their april tag</p>
-    <button id="get_absentees">Done Scanning, Get Absentees!</button>
-    <div id="absentees"></div>
+        <video id="webcam_canvas" playsinline autoplay style="display:none"></video>
+        <canvas id="out_canvas"></canvas>
+        <p>Scan the classroom with students holding up their april tag</p>
+        <button id="get_absentees">Done Scanning, Get Absentees!</button>
+        <div id="absentees"></div>
 
 
 
-</div>
+    </div>
 
-<script src="main.js" async></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/7.1.0/math.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"></script>
-<script type="module" src="video_process.js" async></script>
+    <script src="main.js" async></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/7.1.0/math.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"></script>
+    <script type="module" src="video_process.js" async></script>
 
 </body>
+
 </html>
