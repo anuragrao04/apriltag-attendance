@@ -97,14 +97,37 @@
     cycle = document.getElementById('cycle').value;
     prn = document.getElementById('prn').value;
     table_name = campus + '_' + semester + '_' + section + '_' + branch + '_' + cycle
-    const backend_url = 'http://localhost:6969';
+    const backend_url = '/api';
     const url = backend_url + '/get-tag' + '?table=' + table_name + '&prn=' + prn;
     let tag = await fetch(url)
     // this returns the src of the image. It's an svg
     // we create a new image node, append it to the body, and make it full screen
     tag = await tag.text()
+
+    const parser = new DOMParser();
+    const svgDoc = parser.parseFromString(tag, "image/svg+xml");
+    const svgElement = svgDoc.documentElement;
+
+    const originalViewBox = svgElement.getAttribute('viewBox').split(' ');
+    let minX = parseFloat(originalViewBox[0]);
+    let minY = parseFloat(originalViewBox[1]);
+    let width = parseFloat(originalViewBox[2]);
+    let height = parseFloat(originalViewBox[3]);
+
+
+    const trimAmount = 1000;
+
+    minX += trimAmount;
+    minY += trimAmount;
+    width -= 2 * trimAmount;
+    height -= 2 * trimAmount;
+
+    svgElement.setAttribute('viewBox', `${minX} ${minY} ${width} ${height}`);
+
     let img = document.createElement('img');
-    img.src = "apriltag/" + tag + ".svg";
+
+
+    img.src = 'data:image/svg+xml,' + encodeURIComponent(new XMLSerializer().serializeToString(svgDoc)); // Use modified SVG
     img.style.width = '100vw';
     img.style.height = '100vh';
     img.style.position = 'absolute';
