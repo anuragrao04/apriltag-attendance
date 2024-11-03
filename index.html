@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scanning Attendance</title>
+  <link href="main.css" rel="stylesheet">
+</head>
+
+<body>
+  <h1>Scanning Attendance</h1>
+  <h2>Select Classroom</h2>
+
+  <!-- select campus, semester, section, branch -->
+  <label for="campus">Campus:</label>
+  <select id="campus" name="campus">
+    <option value="EC">Electronic City</option>
+    <option value="RR">Ring Road</option>
+  </select>
+  <br>
+  <label for="semester">Semester:</label>
+  <select id="semester" name="semester">
+    <option value="Sem_1">Semester 1</option>
+    <option value="Sem_3">Semester 3</option>
+    <option value="Sem_5">Semester 5</option>
+  </select>
+  <br>
+  <label for="section">Section:</label>
+  <select id="section" name="section">
+    <option value="Section_A">Section A</option>
+    <option value="Section_B">Section B</option>
+    <option value="Section_C">Section C</option>
+    <option value="Section_D">Section D</option>
+    <option value="Section_E">Section E</option>
+    <option value="Section_F">Section F</option>
+    <option value="Section_G">Section G</option>
+    <option value="Section_H">Section H</option>
+    <option value="Section_I">Section I</option>
+    <option value="Section_J">Section J</option>
+    <option value="Section_K">Section K</option>
+    <option value="Section_L">Section L</option>
+    <option value="Section_M">Section M</option>
+    <option value="Section_N">Section N</option>
+    <option value="Section_O">Section O</option>
+    <option value="Section_P">Section P</option>
+    <option value="Section_Q">Section Q</option>
+    <option value="Section_R">Section R</option>
+    <option value="Section_S">Section S</option>
+    <option value="Section_T">Section T</option>
+    <option value="Section_U">Section U</option>
+    <option value="Section_V">Section V</option>
+    <option value="Section_W">Section W</option>
+    <option value="Section_X">Section X</option>
+    <option value="Section_Y">Section Y</option>
+    <option value="Section_Z">Section Z</option>
+  </select>
+
+
+
+  <br>
+  <label for="branch">Branch:</label>
+  <select id="branch" name="branch">
+    <option value="CSE">CSE</option>
+    <option value="ECE">ECE</option>
+    <option value="CSE_AI_ML_">CSE AI ML</option>
+  </select>
+
+
+  <br>
+  <label for="cycle">Cycle:</label>
+  <select id="cycle" name="cycle">
+    <option value="NA">NA</option>
+    <option value="Chemistry_Cycle">Chemistry Cycle</option>
+    <option value="Physics_Cycle">Physics Cycle</option>
+  </select>
+
+  <br>
+
+  <button id="go_to_scan">
+    Done Filling Up, Scan!
+  </button>
+</body>
+
+<script>
+  go_to_scan_button = document.getElementById('go_to_scan');
+  go_to_scan_button.addEventListener('click', function () {
+    campus = document.getElementById('campus').value;
+    semester = document.getElementById('semester').value;
+    section = document.getElementById('section').value;
+    branch = document.getElementById('branch').value;
+    cycle = document.getElementById('cycle').value;
+    window.location.href = 'scan?' + '&table=' + campus + '_' + semester + '_' + section + '_' + branch + '_' + cycle
+  });
+
+</script>
+
+</html>
