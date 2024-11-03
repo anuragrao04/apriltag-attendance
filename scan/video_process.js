@@ -31,7 +31,7 @@ async function init() {
   let table_name = getURLParameter('table')
 
   async function getStudents() {
-    const backendURL = "/api"
+    const backendURL = "http://localhost:6969"
     const response = await fetch(`${backendURL}/students?table=${table_name}`);
     const data = await response.json();
     return data;
